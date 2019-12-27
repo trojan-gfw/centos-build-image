@@ -2,21 +2,21 @@ FROM centos:7
 
 RUN yum install -y gcc-c++ make perl \
     \
-    && curl -LO https://github.com/Kitware/CMake/releases/download/v3.15.3/cmake-3.15.3.tar.gz \
-    && tar xf cmake-3.15.3.tar.gz \
-    && cd cmake-3.15.3 \
+    && curl -LO https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz \
+    && tar xf cmake-3.16.2.tar.gz \
+    && cd cmake-3.16.2 \
     && ./bootstrap \
     && make install \
     && cd .. \
-    && rm -rf cmake-3.15.3.tar.gz cmake-3.15.3 \
+    && rm -rf cmake-3.16.2.tar.gz cmake-3.16.2 \
     \
-    && curl -LO https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz \
-    && tar xf boost_1_71_0.tar.gz \
-    && cd boost_1_71_0 \
+    && curl -LO https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz \
+    && tar xf boost_1_72_0.tar.gz \
+    && cd boost_1_72_0 \
     && ./bootstrap.sh \
     && ./b2 --with-system --with-program_options variant=release link=static threading=multi runtime-link=shared install \
     && cd .. \
-    && rm -rf boost_1_71_0.tar.gz boost_1_71_0 \
+    && rm -rf boost_1_72_0.tar.gz boost_1_72_0 \
     \
     && curl -LO https://www.openssl.org/source/openssl-1.1.1d.tar.gz \
     && tar xf openssl-1.1.1d.tar.gz \
@@ -26,12 +26,12 @@ RUN yum install -y gcc-c++ make perl \
     && cd .. \
     && rm -rf openssl-1.1.1d.tar.gz openssl-1.1.1d \
     \
-    && curl -LO https://downloads.mariadb.org/f/mariadb-10.4.8/source/mariadb-10.4.8.tar.gz \
-    && tar xf mariadb-10.4.8.tar.gz \
-    && cd mariadb-10.4.8 \
+    && curl -LO https://downloads.mariadb.org/f/mariadb-10.4.11/source/mariadb-10.4.11.tar.gz \
+    && tar xf mariadb-10.4.11.tar.gz \
+    && cd mariadb-10.4.11 \
     && mkdir build \
     && cd build \
     && cmake -DWITH_CURL=OFF -DWITH_DYNCOL=OFF -DWITH_MYSQLCOMPAT=ON -DWITH_SSL=OFF -DWITH_UNIT_TESTS=OFF ../libmariadb \
     && make install \
     && cd ../.. \
-    && rm -rf mariadb-10.4.8.tar.gz mariadb-10.4.8
+    && rm -rf mariadb-10.4.11.tar.gz mariadb-10.4.11
