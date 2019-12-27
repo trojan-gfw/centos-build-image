@@ -2,13 +2,13 @@ FROM centos:7
 
 RUN yum install -y gcc-c++ make perl \
     \
-    && curl -LO https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz \
-    && tar xf cmake-3.16.2.tar.gz \
-    && cd cmake-3.16.2 \
-    && ./bootstrap \
+    && curl -LO https://github.com/Kitware/CMake/releases/download/v3.15.6/cmake-3.15.6.tar.gz \
+    && tar xf cmake-3.15.6.tar.gz \
+    && cd cmake-3.15.6 \
+    && ./bootstrap -- \
     && make install \
     && cd .. \
-    && rm -rf cmake-3.16.2.tar.gz cmake-3.16.2 \
+    && rm -rf cmake-3.15.6.tar.gz cmake-3.15.6 \
     \
     && curl -LO https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.gz \
     && tar xf boost_1_72_0.tar.gz \
