@@ -31,7 +31,7 @@ RUN yum install -y gcc-c++ make perl \
     && cd mariadb-10.4.11 \
     && mkdir build \
     && cd build \
-    && cmake -DWITH_CURL=OFF -DWITH_DYNCOL=OFF -DWITH_MYSQLCOMPAT=ON -DWITH_SSL=OFF -DWITH_UNIT_TESTS=OFF ../libmariadb \
+    && cmake -DWITH_CURL=OFF -DWITH_DYNCOL=OFF -DWITH_MYSQLCOMPAT=ON -DWITH_UNIT_TESTS=OFF ../libmariadb \
     && make install \
     && cd ../.. \
     && rm -rf mariadb-10.4.11.tar.gz mariadb-10.4.11
