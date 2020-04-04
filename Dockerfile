@@ -2,13 +2,13 @@ FROM centos:7
 
 RUN yum install -y gcc-c++ make perl \
     \
-    && curl -LO https://www.openssl.org/source/openssl-1.1.1e.tar.gz \
-    && tar xf openssl-1.1.1e.tar.gz \
-    && cd openssl-1.1.1e \
+    && curl -LO https://www.openssl.org/source/openssl-1.1.1f.tar.gz \
+    && tar xf openssl-1.1.1f.tar.gz \
+    && cd openssl-1.1.1f \
     && ./config --openssldir=/etc/ssl enable-ec_nistp_64_gcc_128 no-ssl2 no-ssl3 no-comp no-idea no-dtls no-dtls1 no-shared no-psk no-srp no-ec2m no-weak-ssl-ciphers \
     && make install_sw \
     && cd .. \
-    && rm -rf openssl-1.1.1e.tar.gz openssl-1.1.1e \
+    && rm -rf openssl-1.1.1f.tar.gz openssl-1.1.1f \
     \
     && curl -LO https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0.tar.gz \
     && tar xf cmake-3.17.0.tar.gz \
